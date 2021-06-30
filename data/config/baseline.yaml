@@ -1,0 +1,12 @@
+CLASS: ['Car','PedPestrian','Cyclist']
+
+MODEL:
+  POINTFEAT:
+    WITH_REFLEXTIVE: FALSE
+    MAX_IN_POINT: 16384
+    FEATURES : [32,64,128,64,64]
+    DROPOUT : [0.02,0.2,0.2,0.3,0.3]
+    LAYER_NAME : ['fc1','fc2','fc3','fc4','fc5']
+
+  MAP2BEV:
+    VOXEL_SIZE : 
