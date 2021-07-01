@@ -217,3 +217,18 @@ class PointPillarsScatter(nn.Module):
         # Undo the column stacking to final 4-dim tensor
         batch_canvas = batch_canvas.view(batch_size, self.nchannels, self.ny, self.nx)
         return batch_canvas
+
+if __name__ == '__main__':
+    from config.config_parser import load_config
+    from aflidar.utils.voxel_generate import VoxelGenerator
+    v = VoxelGenerator([0.16,0.16,4],(0, -40, -3, 70.4, 40, 1),100)
+    model = PillarFeatureNetRadiusHeight(
+        # load_config(
+        #     "/home/patrick/Workspaces/AFLiDAR/data/config/baseline.yaml"
+        # ).MODEL.POINTFEAT
+    )
+    print(model)
+    inp = v(torch.rand(4, 16384, 3))
+    out = model(inp)
+    print(out)
+    print(out.shape)
