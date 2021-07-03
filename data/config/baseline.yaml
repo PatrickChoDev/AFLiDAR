@@ -9,4 +9,7 @@ MODEL:
     LAYER_NAME : ['fc1','fc2','fc3','fc4','fc5']
 
   MAP2BEV:
-    VOXEL_SIZE : 
+    POINT_CLOUD_RANGE : []
+    VOXEL_SIZE : [0.16,0.16] 
+    MAX_PER_PILLAR : 100
+    

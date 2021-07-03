@@ -1,3 +1,5 @@
+LICENSE
+README.md
 setup.py
 AFLiDAR.egg-info/PKG-INFO
 AFLiDAR.egg-info/SOURCES.txt

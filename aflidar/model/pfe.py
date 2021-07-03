@@ -23,6 +23,7 @@ class PointFeatNet(nn.Module):
         super().__init__()
         self.MODULES = nn.Sequential()
         nb_in_ch = 4 if cfg.WITH_REFLEXTIVE else 3
+        cfg.FEATURES[-1] -= nb_in_ch
         for i in range(len(cfg.FEATURES)):
             if i == 0:
                 self.MODULES.add_module(
@@ -48,12 +49,14 @@ class PointFeatNet(nn.Module):
             )
 
     def forward(self, x):
-        return self.MODULES(x)
+        return torch.cat([x,self.MODULES(x)],-1)
 
 
 class PointMAP2BEV(nn.Module):
-    def __init__(self):
+    def __init__(self,cfg):
         super().__init__()
+        self.voxel_size = cfg.VOXEL_SIZE
+        
 
 
 if __name__ == "__main__":
